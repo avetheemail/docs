@@ -16,6 +16,20 @@
           "index",
           "quickstart"
         ]
+      },
+      {
+        "group": "test-xd",
+        "pages": [
+          "test-xd/page-1",
+          "test-xd/page-2"
+        ]
+      },
+      {
+        "group": "test-hot-m",
+        "pages": [
+          "test-hot-m/page-1",
+          "test-hot-m/page-2"
+        ]
       }
     ],
     "global": {
