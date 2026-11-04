@@ -1,55 +1,67 @@
-# Mintlify Starter Kit
+# paySon docs
 
-Use the starter kit to get your docs deployed and ready to customize.
+This is not the stock Mintlify Starter Kit. We run several separate documentation sites, and each one has its own logo and palette. This file explains how to work with them and which rules we follow.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Sites
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+All sites live in `G:\paySon`, next to this folder.
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+| Site | Folder | Port | Command |
+|---|---|---|---|
+| Main | `docs` | 3000 | `npm run dev:docs` |
+| XD Docs | `site-xd` | 3001 | `npm run dev:xd` |
+| Hot-M Docs | `site-hot-m` | 3002 | `npm run dev:hot-m` |
 
-## AI-assisted writing
+## Running the sites
 
-Set up your AI coding tool to work with Mintlify:
+You need Node.js 20 or later. Run all commands from `G:\paySon`, where `package.json` lives.
+
+Install dependencies once:
 
 ```bash
-npx skills add https://mintlify.com/docs
+cd G:/paySon && npm install
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+Run one site:
 
-See the guides for [Claude Code](https://www.mintlify.com/docs/guides/claude-code), [Codex](https://www.mintlify.com/docs/guides/codex), [Cursor](https://www.mintlify.com/docs/guides/cursor), and [Devin Desktop](https://www.mintlify.com/docs/guides/devin-desktop) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+npm run dev:xd
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Run all sites at once (stop with `Ctrl+C`):
 
+```bash
+npm run dev:all
 ```
-mint dev
+
+Check a site for broken links and config errors:
+
+```bash
+npm run validate:xd
 ```
 
-View your local preview at `http://localhost:3000`.
+## Our rules
 
-## Publishing changes
+- **One brand, one folder.** Mintlify allows one `docs.json` per site, so you can't set a logo or palette per tab or group. For a new brand, create a `site-<name>` folder with its own `docs.json`, `style.css`, `favicon.svg`, and `logo/`.
+- **Colors** go in `docs.json`: `colors.primary`, `colors.light`, `colors.dark`, and `background.color`.
+- **Gray palette** lives in `style.css`. Override `--gray-50 … --gray-950` in `R G B` format, without commas.
+- **Font** is Inter (`fonts.family`). **Theme** is `mint`, with dark mode as the default.
+- **Pages** must be added to `navigation`, or they won't appear in the menu.
+- **Ports:** the main site uses 3000, and new sites take the next free port (3003, 3004, and so on).
+- **Language:** all documentation is written in English.
+- **Writing style:** second person, short sentences, headings in sentence case.
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+## Add a new site
 
-## Need help?
+1. Copy `site-xd` to `site-<name>`.
+2. In `docs.json`, change `name`, `colors`, and `background`. In `style.css`, change the gray palette. Put your SVG files in `logo/`.
+3. In `G:\paySon\package.json`, add `dev:<name>` and `validate:<name>`, then include `dev:<name>` in `dev:all`.
 
-### Troubleshooting
+## Publishing
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app). Changes deploy to production automatically after you push to the default branch.
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+## Troubleshooting
+
+- The site won't start: run `npx mint update`.
+- A page returns 404: run from a folder with a valid `docs.json`, and make sure the page is listed in `navigation`.

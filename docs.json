@@ -3,49 +3,75 @@
   "theme": "mint",
   "name": "Mintlify Starter Kit",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#FD5FC2",
+    "light": "#F17BB6",
+    "dark": "#FD5FC2"
+  },
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#0D0D0D"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "fonts": {
+    "family": "Inter"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      },
-      {
-        "group": "test-xd",
-        "pages": [
-          "test-xd/page-1",
-          "test-xd/page-2"
-        ]
-      },
-      {
-        "group": "test-hot-m",
-        "pages": [
-          "test-hot-m/page-1",
-          "test-hot-m/page-2"
+        "tab": "Trust & Safety",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "index",
+              "principles",
+              "policies/what-we-wont-do"
+            ]
+          },
+          {
+            "group": "Policies",
+            "pages": [
+              "policies/prohibited-content",
+              "policies/age-verification",
+              "policies/intellectual-property"
+            ]
+          },
+          {
+            "group": "Moderation",
+            "pages": [
+              "moderation/how-it-works",
+              "moderation/why-rejected",
+              "moderation/appeals"
+            ]
+          },
+          {
+            "group": "Reporting",
+            "pages": [
+              "reporting/how-to-report"
+            ]
+          },
+          {
+            "group": "Your account",
+            "pages": [
+              "your-account/safety-tools",
+              "your-account/wellbeing-resources",
+              "your-account/privacy-summary"
+            ]
+          },
+          {
+            "group": "Contact",
+            "pages": [
+              "contact"
+            ]
+          }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -60,8 +86,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Report a problem",
+      "href": "mailto:support@mintlify.com"
     }
   },
   "contextual": {
