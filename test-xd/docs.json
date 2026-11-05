@@ -1,0 +1,27 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "XD Docs",
+  "colors": {
+    "primary": "#FD5FC2",
+    "light": "#F17BB6",
+    "dark": "#FD5FC2"
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "fonts": {
+    "family": "Inter"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "XD Docs",
+        "pages": [
+          "page-1",
+          "page-2"
+        ]
+      }
+    ]
+  }
+}
